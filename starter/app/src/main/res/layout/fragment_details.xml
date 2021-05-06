@@ -6,7 +6,7 @@
     <data>
      <variable
          name="shoe"
-         type="com.udacity.shoestore.details.DetailsViewModel" />
+         type="com.udacity.shoestore.shows.ShoesViewModel" />
 
     </data>
 

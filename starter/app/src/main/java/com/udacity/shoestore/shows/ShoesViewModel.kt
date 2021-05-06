@@ -9,7 +9,7 @@ private const val TAG = "ShoesViewModel"
 class ShoesViewModel ():ViewModel()
 {
 
-
+    val shoe= Shoe()
     private var _listOfShoes=MutableLiveData<ArrayList<Shoe>>()
     val listOfShoes:LiveData<ArrayList<Shoe>>
     get() = _listOfShoes
@@ -21,7 +21,7 @@ class ShoesViewModel ():ViewModel()
         _listOfShoes.value=list
     }
 
-    fun addToTheList(shoe:Shoe)
+    fun addToTheList()
     {
         
         _listOfShoes.value!!.add(shoe)

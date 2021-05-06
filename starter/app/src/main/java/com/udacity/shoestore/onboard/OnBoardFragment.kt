@@ -27,7 +27,7 @@ class OnBoardFragment : Fragment() {
         onBoardBinding=DataBindingUtil.inflate(inflater,R.layout.fragment_on_board,container,false)
         onBoardBinding.next.setOnClickListener {
 
-            findNavController().navigate(OnBoardFragmentDirections.actionOnBoardFragmentToShoesFragment(null))
+            findNavController().navigate(OnBoardFragmentDirections.actionOnBoardFragmentToShoesFragment())
         }
 
         return onBoardBinding.root

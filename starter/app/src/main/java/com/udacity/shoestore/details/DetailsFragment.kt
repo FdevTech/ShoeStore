@@ -6,16 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentDetailsBinding
+import com.udacity.shoestore.shows.ShoesViewModel
 
 
 class DetailsFragment : Fragment() {
 
     private lateinit var detailsBinding: FragmentDetailsBinding
     private lateinit var detailsViewModel:DetailsViewModel
+    private val shoesViewModel: ShoesViewModel by activityViewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,15 +30,19 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         detailsBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_details,container,false)
-        detailsViewModel=ViewModelProvider(this).get(DetailsViewModel::class.java)
-        detailsBinding.shoe=detailsViewModel
+
+
+
+        detailsBinding.shoe=shoesViewModel
 
         detailsBinding.add.setOnClickListener {
-            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToShoesFragment(detailsViewModel.shoe))
+
+             shoesViewModel.addToTheList()
+            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToShoesFragment())
         }
         detailsBinding.back.setOnClickListener {
 
-            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToShoesFragment(null))
+            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToShoesFragment())
         }
 
 

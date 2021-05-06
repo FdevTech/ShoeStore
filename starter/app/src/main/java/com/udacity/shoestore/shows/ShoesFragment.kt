@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoesBinding
@@ -18,7 +20,8 @@ import kotlin.math.log
 private const val TAG = "ShoesFragment"
 class ShoesFragment : Fragment() {
 
-    private lateinit var shoesViewModel:ShoesViewModel
+    private  val shoesViewModel:ShoesViewModel by activityViewModels()
+
     private lateinit var  fragmentShoesBinding: FragmentShoesBinding
     private var list= arrayListOf<Shoe>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,16 +33,11 @@ class ShoesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //fragmentShoesBinding=FragmentShoesBinding.inflate(inflater,container,false)
-        fragmentShoesBinding=DataBindingUtil.inflate(inflater,R.layout.fragment_shoes,container,false)
-        shoesViewModel=ShoesViewModel()
-        val args=ShoesFragmentArgs.fromBundle(arguments!!)
 
-        if(args.shoe!=null)
-        {
-            Log.d(TAG, "onCreateView: ${args.shoe}")
-            shoesViewModel.addToTheList(args.shoe)
-        }
+        fragmentShoesBinding=DataBindingUtil.inflate(inflater,R.layout.fragment_shoes,container,false)
+
+
+
        
 
 
