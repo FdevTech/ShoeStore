@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="welcome">Welcome!</string>
+    <string name="first_instruction">this app is about building shoe store</string>
+    <string name="this_is_my_app">this is my app!</string>
+    <string name="second_instruction">click the button bellow to get into the shoes list</string>
 </resources>
